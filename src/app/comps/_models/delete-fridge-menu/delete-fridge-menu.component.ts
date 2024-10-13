@@ -50,9 +50,8 @@ export class DeleteFridgeMenuComponent implements AfterViewInit {
   }
 
   delete() {
-    this.apiService.get_profile().subscribe(resp => {
-      const profile: UserModel = resp;
-
-    }, error => { console.log(error); })
+    this.apiService.delete_fridge(this.fridge?.id!).subscribe(resp => {
+      this.deleteFridgeService.Interact();
+    }, error => { console.log(error); });
   }
 }

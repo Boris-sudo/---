@@ -7,13 +7,16 @@ import { AuthGuard } from './guards/auth.guard';
 import { MainPageAuthGuard } from './guards/main-page-auth.guard';
 import { FridgesPageAuthGuard } from './guards/fridges-page-auth.guard';
 import { FridgesComponent } from './comps/pages/fridges/fridges.component';
+import { FridgeComponent } from './comps/pages/fridge/fridge.component';
+import { ProductComponent } from './comps/pages/product/product.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
 
   { path: 'main', component: MainPageComponent, canActivate: [MainPageAuthGuard] },
   { path: 'fridges', component: FridgesComponent, canActivate: [FridgesPageAuthGuard] },
-  { path: 'fridge/:id', component: FridgesComponent, canActivate: [FridgesPageAuthGuard] },
+  { path: 'fridge/:id', component: FridgeComponent, canActivate: [FridgesPageAuthGuard] },
+  { path: 'product', component: ProductComponent, canActivate: [FridgesPageAuthGuard] },
 
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },

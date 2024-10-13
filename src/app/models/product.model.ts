@@ -1,6 +1,10 @@
+import { FridgeModel } from './fridge.model';
+
 export interface ProductModel {
-  time_start: string;
-  time_finish: string;
+  id: number;
+  start_date: string;
+  end_date: string;
   name: string;
   count: number;
+  fridge: FridgeModel
 }

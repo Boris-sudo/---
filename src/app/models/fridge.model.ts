@@ -1,13 +1,15 @@
 import { ProductModel } from './product.model';
+import { WishModel } from './wish.model';
 
 export interface FridgeModel {
   id: number;
   name: string;
-  owner: FridgeUserModel,
-  admins: FridgeUserModel[],
-  members: FridgeUserModel[],
+  owner: FridgeUserModel;
+  admins: FridgeUserModel[];
+  members: FridgeUserModel[];
   status: string;
-  products?: ProductModel[],
+  products?: ProductModel[];
+  wishes: WishModel[];
 }
 
 export interface FridgeUserModel {

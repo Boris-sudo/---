@@ -91,6 +91,14 @@
     align-content: flex-end;
     margin-bottom: 20px;
 
+    @media screen and (max-width: 670px) {
+      flex-direction: column;
+      align-content: flex-start;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
     .header-text {
       font-size: 20px;
       font-weight: 600;

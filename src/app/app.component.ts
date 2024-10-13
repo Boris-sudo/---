@@ -4,11 +4,14 @@ import { HeaderComponent } from './comps/header/header.component';
 import { SideBarComponent } from './comps/side-bar/side-bar.component';
 import { filter } from 'rxjs';
 import { DeleteFridgeMenuComponent } from './comps/_models/delete-fridge-menu/delete-fridge-menu.component';
+import { AddFridgeComponent } from './comps/_models/add-fridge/add-fridge.component';
+import { AddProductComponent } from './comps/_models/add-product/add-product.component';
+import { AddMemberComponent } from './comps/_models/add-member/add-member.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SideBarComponent, DeleteFridgeMenuComponent],
+  imports: [RouterOutlet, HeaderComponent, SideBarComponent, DeleteFridgeMenuComponent, AddFridgeComponent, AddProductComponent, AddMemberComponent],
   template: `
     <HeaderComp/>
 
@@ -16,6 +19,9 @@ import { DeleteFridgeMenuComponent } from './comps/_models/delete-fridge-menu/de
       <router-outlet/>
       <SideBar/>
       <DeleteFridgeMenu/>
+      <AddFridgeForm/>
+      <AddProduct/>
+      <AddMember/>
     </div>
   `,
   styles: `

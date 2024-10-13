@@ -22,7 +22,8 @@ export class FridgeElementComponent {
     admins: [],
     members: [],
     status: 'Владелец',
-    products: []
+    products: [],
+    wishes: [],
   }
 
   constructor(
