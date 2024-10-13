@@ -99,12 +99,12 @@ export class ApiService {
     return this.http.delete(this.request(`product/${id}/remove_product`), this.get_headers())
   }
 
-  decrease_product(id: number) {
-    return this.http.post(this.request(`product/${id}/decrement_product`), {}, this.get_headers())
+  decrease_product(fridge_id: number, product_id: number) {
+    return this.http.post(this.request(`product/${fridge_id}/decrement_product`), {id: product_id}, this.get_headers())
   }
 
-  increase_product(id: number) {
-    return this.http.post(this.request(`product/${id}/increment_product`), {}, this.get_headers())
+  increase_product(fridge_id: number, product_id: number) {
+    return this.http.post(this.request(`product/${fridge_id}/increment_product`), {id: product_id}, this.get_headers())
   }
 
   create_wish(name: string, fridge_id: number, count: number) {

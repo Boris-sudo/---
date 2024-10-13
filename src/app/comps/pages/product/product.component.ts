@@ -15,6 +15,7 @@ import { ApiService } from '../../../services/api.service';
 export class ProductComponent {
   product!: Partial<ProductModel & WishModel>;
   is_wish!: boolean;
+  fridge!: number;
 
   constructor(
     private openProductService: OpenProductService,
@@ -23,6 +24,7 @@ export class ProductComponent {
   ) {
     this.product = JSON.parse(localStorage.getItem('product')!).product;
     this.is_wish = JSON.parse(localStorage.getItem('product')!).is_wish
+    this.fridge = JSON.parse(localStorage.getItem('product')!).fridge_id
   }
 
   ozonRoute() {
@@ -49,14 +51,17 @@ export class ProductComponent {
   }
 
   increment() {
-    this.apiService.increase_product(this.product.id!).subscribe(resp => {
+    console.log(this.product.id);
+    this.apiService.increase_product(this.fridge, this.product.id!).subscribe(resp => {
       this.product.count!++;
+      localStorage.setItem('product', JSON.stringify({product: this.product, is_wish: this.is_wish, fridge_id: this.fridge}));
     }, error => { console.log(error); })
   }
 
   decrement() {
-    this.apiService.decrease_product(this.product.id!).subscribe(resp => {
+    this.apiService.decrease_product(this.fridge, this.product.id!).subscribe(resp => {
       this.product.count!--;
+      localStorage.setItem('product', JSON.stringify({product: this.product, is_wish: this.is_wish, fridge_id: this.fridge}));
       if (this.product.count === 0)
         this.router.navigate(['/fridges']);
     }, error => { console.log(error); })

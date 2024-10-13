@@ -58,7 +58,7 @@ export class FridgeComponent implements OnInit {
   }
 
   open(product: ProductModel | WishModel, is_wish: boolean) {
-    localStorage.setItem('product', JSON.stringify({product: product, is_wish: is_wish}));
+    localStorage.setItem('product', JSON.stringify({product: product, is_wish: is_wish, fridge_id: this.fridge.id}));
     this.router.navigate(['/product']);
   }
 

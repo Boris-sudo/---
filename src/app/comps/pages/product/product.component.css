@@ -130,3 +130,7 @@
 .br-9 {
   &:hover { filter: brightness(.9); }
 }
+
+:host {
+  user-select: none;
+}
